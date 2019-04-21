@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <head>
   <title>To Do List</title>
-  <meta charset="urf-8"/>
+  <meta charset="utf-8"/>
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <div class="container">
-    <div class="js-weather"></div>
+    <div class="js-weather">
+      <div class="js-temperature"></div>
+      <div class="js-coords"></div>
+    </div>
     <div class="js-clock">
       <h1 class="js-title">00:00</h1>
     </div>
-  
+    
     <form class="js-form form">
       <input type="text" placeholder="What is your name?"/>
     </form>
-    <h4 class="js-greetings greetings"></h4>
+    
+    <div style="display: flex;">
+      <h1 class="js-greetings greetings"></h1>
+      <button class="js-delete-name" style="display: none;">이름 삭제</button>
+    </div>
   
     <form class="js-toDoForm">
       <input type="text" placeholder="Write a to do"/>
     </form>
     <ul class="js-toDoList"></ul>
+    
+    <div class="delete-btn-wrap" style="display: none;">
+      <button class="js-delete-all-list">리스트 삭제</button>
+    </div>
   </div>
 
   <script src="clock.js"></script>

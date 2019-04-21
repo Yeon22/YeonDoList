@@ -12,10 +12,18 @@ body {
   font-size: 20px;
 }
 
+.bgImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadein .5s linear;
+}
+
 input {
   font-size: 20px;
   height: 10pt;
-  width: 50vw;
+  width: 60vw;
   padding: 10px;
   border: none;
   color: #fff;
@@ -32,7 +40,6 @@ input::placeholder {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -47,19 +54,46 @@ input::placeholder {
 .js-title {
   font-size: 120px;
   font-weight: bold;
-}
-
-.btn {
-  cursor: pointer;
+  margin-top: 15vh;
 }
 
 .form,
 .greetings {
   display: none;
+  margin-top: 0;
 }
 
 .showing {
   display: block;
+}
+
+.js-toDoList {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 1000px;
+  height: 300px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.js-toDoList li button {
+  border: none;
+  background: none;
+  color: red;
+  cursor: pointer;
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+.delete-btn-wrap {
+  width: 100%;
+  margin-right: 50px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 @keyframes fadein {
@@ -69,14 +103,4 @@ input::placeholder {
   to {
     opacity: 1;
   }
-}
-
-.bgImage {
-  position: absolute;
-  /* left: 0;
-  top: 0; */
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  animation: fadein .5s linear;
 }
