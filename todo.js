@@ -1,6 +1,8 @@
 const toDoForm = document.querySelector('.js-toDoForm'),
       toDoInput = toDoForm.querySelector('input'),
-      toDoList = document.querySelector('.js-toDoList');
+      toDoList = document.querySelector('.js-toDoList'),
+      deleteBtnWrap = document.querySelector('.delete-btn-wrap'),
+      deleteAllBtn = document.querySelector('.js-delete-all-toDos');
 
 const TODOS_LS = 'toDos';
 
@@ -13,6 +15,10 @@ function deleteToDo(event) {
   const cleanToDos = toDos.filter(toDo => toDo.id !== Number(li.id));
   toDos = cleanToDos;
   saveToDos();
+}
+
+function deleteAllToDos() {
+  localStorage.removeItem(TODOS_LS);
 }
 
 function saveToDos() {
@@ -53,6 +59,10 @@ function loadToDos() {
     paredToDos.forEach(toDo => {
       paintToDo(toDo.text);
     });
+    // deleteBtnWrap.classList.replace('hide', 'showing');
+    deleteAllBtn.addEventListener('click', deleteAllToDos);
+  } else {
+    
   }
 }
 

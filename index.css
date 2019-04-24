@@ -57,22 +57,20 @@ input::placeholder {
   margin-top: 15vh;
 }
 
-.form,
-.greetings
-.delete-btn {
+.hide {
   display: none;
-  margin-top: 0;
 }
 
 .showing {
   display: block;
+  margin-top: 0;
 }
 
 .js-toDoList {
   width: 100%;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 20px;
   max-width: 1000px;
   height: 300px;
   display: flex;
@@ -99,10 +97,27 @@ input::placeholder {
 }
 
 .delete-btn-wrap {
-  width: 100%;
-  margin-right: 50px;
-  display: flex;
-  justify-content: flex-end;
+  
+}
+
+.js-delete-all-toDos {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 13px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.js-delete-all-toDos:hover {
+  transform: scale(1.2);
 }
 
 @keyframes fadein {
