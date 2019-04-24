@@ -58,7 +58,8 @@ input::placeholder {
 }
 
 .form,
-.greetings {
+.greetings
+.delete-btn {
   display: none;
   margin-top: 0;
 }
@@ -72,12 +73,20 @@ input::placeholder {
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 100%;
   max-width: 1000px;
   height: 300px;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  overflow-x: auto;
+}
+
+.js-toDoList::-webkit-scrollbar {
+  height: 10px;
+}
+
+.js-toDoList::-webkit-scrollbar-thumb {
+  background: #D0D1EE;
 }
 
 .js-toDoList li button {
