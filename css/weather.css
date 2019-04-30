@@ -1,0 +1,21 @@
+.weather {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 10pt;
+  font-weight: bold;
+  text-align: end;
+}
+
+.temperature {
+  cursor: pointer;
+}
+
+.temperature:hover {
+  color: rgb(134, 248, 185);
+  transition: color .2s linear;
+}
+
+.temperature-max-min {
+  color: rgb(241, 224, 197);
+}
