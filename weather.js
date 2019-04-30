@@ -8,10 +8,13 @@ function getWeather(lat, lon) {
   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
     .then(res => res.json())
     .then(json => {
-      const temperature = json.main.temp;
+      const currentTemp = json.main.temp;
+      const maxTemp = json.main.temp_max;
+      const minTemp = json.main.temp_min;
+      const windSpeed = json.wind.speed;
       const place = json.name;
-      weather.innerText = `현재 온도 : ${temperature}도`;
-      coords.innerText = `현재 위치 : ${place}`;
+      weather.innerText = `Current Temperature : ${currentTemp}°C`;
+      coords.innerText = `Current Location : ${place}`;
     });
 }
 
