@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <head>
-  <title>To Do List</title>
+  <title>JS To Do Applications</title>
   <meta charset="utf-8"/>
+  <meta name="author" content="Su Yeon Bak"/>
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <div class="container">
+  <section class="center">
     <div class="js-weather">
       <div class="js-temperature"></div>
+      <div class="js-temperature-max-min hide">
+        <div class="js-temperature-max">max</div>
+        <div class="js-temperature-min">min</div>
+      </div>
       <div class="js-coords"></div>
     </div>
+
     <div class="js-clock">
-      <h1 class="js-title">00:00</h1>
+      <h1 class="js-clock-text">00:00</h1>
     </div>
     
-    <form class="js-form hide">
+    <form class="js-name hide">
       <input type="text" placeholder="What is your name?"/>
     </form>
     
-    <div style="display: flex;">
-      <h1 class="js-greetings hide"></h1>
+    <div class="js-greeting">
+      <h1 class="js-greeting-text hide"></h1>
     </div>
   
-    <form class="js-toDoForm">
+    <form class="js-to-do">
       <input type="text" placeholder="Write a to do"/>
     </form>
-    <ul class="js-toDoList"></ul>
-    
-    <div class="delete-btn-wrap hide">
-      <button class="js-delete-all-toDos">할일 전체 삭제</button>
+    <ul class="js-to-do-list"></ul>
+
+    <div class="delete-btn-container hide">
+      <button class="js-delete-all-to-do">할일 전체 삭제</button>
     </div>
-  </div>
+  </section>
 
   <script src="background.js"></script>
   <script src="clock.js"></script>
   <script src="greeting.js"></script>
-  <script src="todo.js"></script>
+  <script src="toDo.js"></script>
   <script src="weather.js"></script>
 </body>
 </html>

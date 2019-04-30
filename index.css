@@ -36,7 +36,7 @@ input::placeholder {
   color: #fff;
 }
 
-.container {
+.center {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -49,12 +49,17 @@ input::placeholder {
   right: 0;
   margin: 10pt;
   font-weight: bold;
+  text-align: end;
 }
 
-.js-title {
+.js-clock-text {
   font-size: 120px;
   font-weight: bold;
   margin-top: 15vh;
+}
+
+.js-greeting {
+  display: flex;
 }
 
 .hide {
@@ -66,7 +71,7 @@ input::placeholder {
   margin-top: 0;
 }
 
-.js-toDoList {
+.js-to-do-list {
   width: 100%;
   list-style: none;
   padding: 0;
@@ -79,15 +84,15 @@ input::placeholder {
   overflow-x: auto;
 }
 
-.js-toDoList::-webkit-scrollbar {
+.js-to-do-list::-webkit-scrollbar {
   height: 10px;
 }
 
-.js-toDoList::-webkit-scrollbar-thumb {
+.js-to-do-list::-webkit-scrollbar-thumb {
   background: #D0D1EE;
 }
 
-.js-toDoList li button {
+.js-to-do-list li button {
   border: none;
   background: none;
   color: red;
@@ -96,11 +101,7 @@ input::placeholder {
   padding-right: 10px;
 }
 
-.delete-btn-wrap {
-  
-}
-
-.js-delete-all-toDos {
+.js-delete-all-to-do {
   background-color: #f44336;
   border: none;
   color: white;
@@ -116,7 +117,7 @@ input::placeholder {
   transition: all .3s ease-in-out;
 }
 
-.js-delete-all-toDos:hover {
+.js-delete-all-to-do:hover {
   transform: scale(1.2);
 }
 

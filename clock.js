@@ -1,5 +1,5 @@
 const clockContainer = document.querySelector('.js-clock'),
-      clockTitle = clockContainer.querySelector('.js-title');
+      clockText = clockContainer.querySelector('.js-clock-text');
 
 function timeConverter(v) {
   const time = Number(v);
@@ -11,7 +11,7 @@ function getTime() {
   const minutes = date.getMinutes();
   const hours = date.getHours();
   const seconds = date.getSeconds();
-  clockTitle.innerHTML = `${timeConverter(hours)}:${timeConverter(minutes)}:${timeConverter(seconds)}`;
+  clockText.innerHTML = `${timeConverter(hours)}:${timeConverter(minutes)}:${timeConverter(seconds)}`;
 }
 
 function init() {
