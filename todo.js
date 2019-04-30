@@ -1,10 +1,11 @@
-const toDoForm = document.querySelector('.js-toDoForm'),
-      toDoInput = toDoForm.querySelector('input'),
-      toDoList = document.querySelector('.js-toDoList'),
-      deleteBtnWrap = document.querySelector('.delete-btn-wrap'),
-      deleteAllBtn = document.querySelector('.js-delete-all-toDos');
+const toDoContainer = document.querySelector('.js-to-do'),
+      toDoInput = toDoContainer.querySelector('input'),
+      toDoList = document.querySelector('.js-to-do-list'),
+      deleteAllBtnContainer = document.querySelector('.delete-btn-container'),
+      deleteAllBtn = document.querySelector('.js-delete-all-to-do');
 
-const TODOS_LS = 'toDos';
+const TODOS_LS = 'toDos',
+      HIDE_CN = 'hide';
 
 let toDos = [];
 
@@ -18,7 +19,7 @@ function deleteToDo(event) {
 }
 
 function deleteAllToDos() {
-  localStorage.removeItem(TODOS_LS);
+  localStorage.setItem(TODOS_LS, JSON.stringify([]));
 }
 
 function saveToDos() {
@@ -45,6 +46,17 @@ function paintToDo(text) {
   saveToDos();
 }
 
+function paintDeleteAllBtn(parsedToDos) {
+  if (parsedToDos.length > 0) {
+    deleteAllBtnContainer.classList.remove(HIDE_CN);
+    deleteAllBtnContainer.classList.add(SHOWING_CN);
+    deleteAllBtn.addEventListener('click', deleteAllToDos);
+  } else {
+    deleteAllBtnContainer.classList.remove(SHOWING_CN);
+    deleteAllBtnContainer.classList.add(HIDE_CN);
+  }
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   const currentValue = toDoInput.value;
@@ -55,20 +67,19 @@ function handleSubmit(event) {
 function loadToDos() {
   const loadedToDos = localStorage.getItem(TODOS_LS);
   if (loadedToDos !== null) {
-    const paredToDos = JSON.parse(loadedToDos);
-    paredToDos.forEach(toDo => {
-      paintToDo(toDo.text);
-    });
-    // deleteBtnWrap.classList.replace('hide', 'showing');
-    deleteAllBtn.addEventListener('click', deleteAllToDos);
-  } else {
-    
+    const parsedToDos = JSON.parse(loadedToDos);
+    if (parsedToDos.length > 0) {
+      parsedToDos.forEach(toDo => {
+        paintToDo(toDo.text);
+      });
+    }
+    paintDeleteAllBtn(parsedToDos);
   }
 }
 
 function init() {
   loadToDos();
-  toDoForm.addEventListener('submit', handleSubmit);
+  toDoContainer.addEventListener('submit', handleSubmit);
 }
 
 init();
