@@ -1,8 +1,6 @@
 const toDoContainer = document.querySelector('.to-do'),
       toDoInput = toDoContainer.querySelector('input'),
-      toDoList = document.querySelector('.to-do-list'),
-      deleteAllBtnContainer = document.querySelector('.delete-btn-container'),
-      deleteAllBtn = document.querySelector('.delete-all-to-do');
+      toDoList = document.querySelector('.to-do-list');
 
 let toDos = [];
 
@@ -13,10 +11,6 @@ function deleteToDo(event) {
   const cleanToDos = toDos.filter(toDo => toDo.id !== Number(li.id));
   toDos = cleanToDos;
   saveToDos();
-}
-
-function deleteAllToDos() {
-  localStorage.removeItem(TODOS_LS);
 }
 
 function saveToDos() {
@@ -44,17 +38,6 @@ function paintToDo(text) {
   saveToDos();
 }
 
-function paintDeleteAllBtn(parsedToDos) {
-  if (parsedToDos.length > 0) {
-    deleteAllBtnContainer.classList.remove(HIDE_CN);
-    deleteAllBtnContainer.classList.add(SHOWING_CN);
-    deleteAllBtn.addEventListener('click', deleteAllToDos);
-  } else {
-    deleteAllBtnContainer.classList.remove(SHOWING_CN);
-    deleteAllBtnContainer.classList.add(HIDE_CN);
-  }
-}
-
 function handleSubmit(event) {
   event.preventDefault();
   const currentValue = toDoInput.value;
@@ -71,7 +54,6 @@ function loadToDos() {
         paintToDo(toDo.text);
       });
     }
-    paintDeleteAllBtn(parsedToDos);
   }
 }
 
