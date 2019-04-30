@@ -7,5 +7,5 @@ Basic To Do Applications
 4. Location
 5. Daily landscape photo
 
-> Try it
-https://yeon22.github.io/YeonDoList/
+> ## Try it
+> ### https://yeon22.github.io/YeonDoList/
