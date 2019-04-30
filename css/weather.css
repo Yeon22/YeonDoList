@@ -3,6 +3,7 @@
   top: 0;
   right: 0;
   margin: 10pt;
+  font-size: 15px;
   font-weight: bold;
   text-align: end;
 }
@@ -12,10 +13,6 @@
 }
 
 .temperature:hover {
-  color: rgb(134, 248, 185);
+  color: rgb(216, 247, 230);
   transition: color .2s linear;
-}
-
-.temperature-max-min {
-  color: rgb(241, 224, 197);
 }

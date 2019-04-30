@@ -16,7 +16,7 @@
 }
 
 .to-do-list::-webkit-scrollbar-thumb {
-  background: #D0D1EE;
+  background: rgb(212, 213, 241);
 }
 
 .to-do-list li button {

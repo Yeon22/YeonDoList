@@ -20,7 +20,7 @@ body {
 input {
   font-size: 20px;
   height: 10pt;
-  width: 60vw;
+  width: 100%;
   padding: 10px;
   border: none;
   color: #fff;

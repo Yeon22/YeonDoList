@@ -1,5 +1,4 @@
 const temperature = document.querySelector('.temperature'),
-      coords = document.querySelector('.coords'),
       tempMaxMinContainer = document.querySelector('.temperature-max-min'),
       tempMax = tempMaxMinContainer.querySelector('.temperature-max'),
       tempMin = tempMaxMinContainer.querySelector('.temperature-min');
@@ -13,11 +12,10 @@ function getWeather(lat, lon) {
       const maxTemp = json.main.temp_max;
       const minTemp = json.main.temp_min;
       const place = json.name;
-      temperature.innerText = `Current Temperature : ${currentTemp}°C`;
+      temperature.innerText = `${currentTemp}°C / ${place}`;
       temperature.addEventListener('click', handleClickTemperature);
-      coords.innerText = `Current Location : ${place}`;
-      tempMax.innerText = `Today Max Temperature : ${maxTemp}°C`;
-      tempMin.innerText = `Today Min Temperature : ${minTemp}°C`;
+      tempMax.innerText = `Max : ${maxTemp}°C`;
+      tempMin.innerText = `Min : ${minTemp}°C`;
     });
 }
 
