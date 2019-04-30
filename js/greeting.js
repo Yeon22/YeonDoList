@@ -1,9 +1,6 @@
-const nameForm = document.querySelector('.js-name'),
+const nameForm = document.querySelector('.name'),
       input = nameForm.querySelector('input'),
-      greetingText = document.querySelector('.js-greeting-text');
-
-const USER_LS = 'currentUser',
-      SHOWING_CN = 'showing';
+      greetingText = document.querySelector('.greeting-text');
 
 function saveName(name) {
   localStorage.setItem(USER_LS, name);
@@ -17,12 +14,13 @@ function handleSubmit(event) {
 }
 
 function askForName() {
-  nameForm.classList.add(SHOWING_CN);
+  nameForm.classList.remove(HIDE_CN);
   nameForm.addEventListener('submit', handleSubmit);
 }
 
 function paintGreeting(name) {
   nameForm.classList.remove(SHOWING_CN);
+  nameForm.classList.add(HIDE_CN);
   greetingText.classList.add(SHOWING_CN);
   greetingText.innerText = `Hello, ${name}`;
 }

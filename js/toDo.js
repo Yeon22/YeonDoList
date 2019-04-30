@@ -1,11 +1,8 @@
-const toDoContainer = document.querySelector('.js-to-do'),
+const toDoContainer = document.querySelector('.to-do'),
       toDoInput = toDoContainer.querySelector('input'),
-      toDoList = document.querySelector('.js-to-do-list'),
+      toDoList = document.querySelector('.to-do-list'),
       deleteAllBtnContainer = document.querySelector('.delete-btn-container'),
-      deleteAllBtn = document.querySelector('.js-delete-all-to-do');
-
-const TODOS_LS = 'toDos',
-      HIDE_CN = 'hide';
+      deleteAllBtn = document.querySelector('.delete-all-to-do');
 
 let toDos = [];
 
@@ -19,7 +16,7 @@ function deleteToDo(event) {
 }
 
 function deleteAllToDos() {
-  localStorage.setItem(TODOS_LS, JSON.stringify([]));
+  localStorage.removeItem(TODOS_LS);
 }
 
 function saveToDos() {
@@ -34,6 +31,7 @@ function paintToDo(text) {
   deleteBtn.innerText = 'X';
   deleteBtn.addEventListener('click', deleteToDo);
   span.innerText = text;
+  span.classList.add('to-do-text');
   li.appendChild(deleteBtn);
   li.appendChild(span);
   li.id = newId;

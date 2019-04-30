@@ -1,5 +1,5 @@
-const clockContainer = document.querySelector('.js-clock'),
-      clockText = clockContainer.querySelector('.js-clock-text');
+const clockContainer = document.querySelector('.clock'),
+      clockText = clockContainer.querySelector('.clock-text');
 
 function timeConverter(v) {
   const time = Number(v);

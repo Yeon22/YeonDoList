@@ -1,21 +1,33 @@
-const weather = document.querySelector('.js-temperature'),
-      coords = document.querySelector('.js-coords');
+const temperature = document.querySelector('.temperature'),
+      coords = document.querySelector('.coords'),
+      tempMaxMinContainer = document.querySelector('.temperature-max-min'),
+      tempMax = tempMaxMinContainer.querySelector('.temperature-max'),
+      tempMin = tempMaxMinContainer.querySelector('.temperature-min');
 
-const API_KEY = '4de275e9c1dc478d273652025b925b02';
-const COORDS = 'coords';
 
 function getWeather(lat, lon) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`)
     .then(res => res.json())
     .then(json => {
       const currentTemp = json.main.temp;
       const maxTemp = json.main.temp_max;
       const minTemp = json.main.temp_min;
-      const windSpeed = json.wind.speed;
       const place = json.name;
-      weather.innerText = `Current Temperature : ${currentTemp}°C`;
+      temperature.innerText = `Current Temperature : ${currentTemp}°C`;
+      temperature.addEventListener('click', handleClickTemperature);
       coords.innerText = `Current Location : ${place}`;
+      tempMax.innerText = `Today Max Temperature : ${maxTemp}°C`;
+      tempMin.innerText = `Today Min Temperature : ${minTemp}°C`;
     });
+}
+
+function handleClickTemperature() {
+  const isHide = tempMaxMinContainer.classList.contains(HIDE_CN);
+  if (isHide) {
+    tempMaxMinContainer.classList.remove(HIDE_CN);
+  } else {
+    tempMaxMinContainer.classList.add(HIDE_CN);
+  }
 }
 
 function saveCoords(coordsObj) {
