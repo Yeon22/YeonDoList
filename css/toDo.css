@@ -1,3 +1,8 @@
+.to-do input:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
 .to-do-list {
   width: 100%;
   list-style: none;
@@ -26,4 +31,12 @@
   cursor: pointer;
   font-size: 20px;
   padding-right: 10px;
+}
+
+.to-do-list li button:hover {
+  opacity: 0.4;
+}
+
+.to-do-list li button:active {
+  outline: none;
 }
